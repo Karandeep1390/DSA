@@ -17,7 +17,10 @@ public class RemoveKDigits {
             st.push(ch);
         }
 
-        while(k > 0 && !st.isEmpty()) st.pop();
+        while(k > 0 && !st.isEmpty()) {
+            st.pop();
+            k--;
+        }
 
         StringBuilder sb = new StringBuilder();
         while(!st.isEmpty()) sb.append(st.pop());
@@ -26,6 +29,6 @@ public class RemoveKDigits {
 
         while(sb.length() > 0 && sb.charAt(0) == '0') sb.deleteCharAt(0);
         
-        return sb.toString();
+        return sb.length() > 0 ? sb.toString() : "0";
     }
 }
